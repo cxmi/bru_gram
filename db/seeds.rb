@@ -24,9 +24,9 @@ boulders = Photo.create! caption: "Boulders #Beach is so rad I fuckin' love peng
 wow = Photo.create! caption: "#SouthAfrica is so so great I haven't seen an elephant yet but look how cute this is!", public: false, user_id: jon.id, image: "http://travelphotos.picturetheplanet.com/Africa/South-Africa/Wildlife/i-jFJKrBp/0/XL/Wildlife-South-Africa-21-XL.jpg"
 
 
-Comment.create! body: "Was great", photo: cape_good_hope
-Comment.create! body: "Was awesome", photo: boulders
-Comment.create! body: "Was very great", photo: wow
+Comment.create! body: "Was great", photo: cape_good_hope, user_id: jon.id
+Comment.create! body: "Was awesome", photo: boulders, user_id: kevin.id
+Comment.create! body: "Was very great", photo: wow, user_id: jon.id
 
 
 
