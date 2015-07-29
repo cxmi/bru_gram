@@ -12,17 +12,19 @@ User.delete_all
 
 puts "Creating Photos and Comments..."
 
-cape_good_hope = Photo.create! caption: "Cape of Good Hope!", public: true, image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Cape_of_Good_Hope.jpg"
-Comment.create! body: "Was great"
-
-boulders = Photo.create! caption: "Boulders Beach", public: true, image: "https://upload.wikimedia.org/wikipedia/commons/3/34/Boulders_Bay.jpg"
-Comment.create! body: "Was very great"
-Comment.create! body: "Was awesome"
-
 kevin = User.create! email: "hi@hi.com", password: "password", password_confirmation: "password"
 
 jon = User.create! email: "ho@ho.com", password: "password", password_confirmation: "password"
 
+cape_good_hope = Photo.create! caption: "Cape of Good Hope!", user_id: kevin.id, public: true, image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Cape_of_Good_Hope.jpg"
+Comment.create! body: "Was great"
+
+boulders = Photo.create! caption: "Boulders #Beach", public: true, user_id: jon.id, image: "https://upload.wikimedia.org/wikipedia/commons/3/34/Boulders_Bay.jpg"
+Comment.create! body: "Was very great"
+Comment.create! body: "Was awesome"
+
+
+# boulders.hashtags.create tag: "#Beach"
 
   # create_table "comments", force: :cascade do |t|
   #   t.text     "body"
