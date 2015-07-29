@@ -1,0 +1,5 @@
+<p><% @hashtags.each do |hashtag| %>
+<% if hashtag.photos != [] %>
+<%= link_to hashtag.tag, hashtag_path(hashtag) %><br>
+<% end %>
+<% end %></p>

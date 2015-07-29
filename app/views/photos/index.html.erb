@@ -1,10 +1,26 @@
 <% @photos.each do |photo| %>
-<p><%= image_tag photo.image %></p>
-<p><%= photo.caption %><br>
-By: <%= photo.user.email %></p>
+<% if photo.public == true || photo.user = current_user %>
 
+<p><%= photo.user.email %><br>
+<%= image_tag photo.image %></p>
+<p><%= photo.caption %></p>
+
+<% if can_edit_photo?(photo) %>
+<%= link_to "Edit", edit_photo_path(photo) %>
+<% end %> 
+
+
+<% if can_edit_photo?(photo) %>
+<%= link_to "Delete", photo_path(photo), 
+	method: :delete,
+	data: {confirm: "Are you sure?"} %>
 <% end %>
 
+<% end %>
+<% end %>
+
+
+<br>
 <%= link_to 'Back to Home', root_path %>
 
 

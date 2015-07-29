@@ -1,5 +1,9 @@
-<%= @hashtag.tag %>
+<h2><%= @hashtag.tag %></h2>
+
 
 <% @hashtag.photos.each do |photo| %>
-	<p><%= image_tag photo.image %></p><p><%= photo.caption %><br>By: <%= photo.user.email %></p>
+	<p><%= photo.user.email %><br>
+	<%= image_tag photo.image %></p>
+	<p><%= photo.caption %><br>
+
 <% end %>

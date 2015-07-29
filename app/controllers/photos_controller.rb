@@ -49,29 +49,41 @@ end
 def edit
 	@photo = Photo.find(params[:id])
 
-	verify_can_edit_animal
+	verify_can_edit_photo
 
 end
 
 def update
 	@photo = Photo.find(params[:id])
-
-	verify_can_edit_animal
+	
+	@photo.hashtags = Hashtag.parse(@photo.caption)
+	
+	verify_can_edit_photo
+	if @photo.update(photo_params)
+			redirect_to photo_path(@photo)
+		else
+			render :edit
+	end
 end
 
 def destroy
-	verify_can_edit_photo
 	@photo = Photo.find(params[:id])
+		verify_can_edit_photo
+
 		@photo.destroy
 
 		redirect_to photos_path
 end
 
+def mygrams
+	@photo = Photo.where(user_id: current_user.id).order(created_at: :desc)
+
+end
 
 private 
 
 def photo_params
-	params require(:photo).permit(:caption, :public, :image)
+	params.require(:photo).permit(:caption, :public, :image)
 end
 
 def verify_can_edit_photo 

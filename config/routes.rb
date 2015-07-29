@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'welcome/index'
+  get 'photos/mygrams' => 'photos#mygrams'
 
   resources :photos do  
     resources :comments
   end
+
+  resources :hashtags, only: [:show, :index]
   
   # resources :hashtags, only: [:show]
 
