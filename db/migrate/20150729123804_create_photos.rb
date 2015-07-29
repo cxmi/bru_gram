@@ -4,6 +4,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.boolean :public
       t.text :caption
       t.string :image
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
