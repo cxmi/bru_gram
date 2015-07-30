@@ -22,7 +22,29 @@ img {
 	width: 350px;
 }
 
+.img_large {
+	width: 600px;
+}
+
+
+a {
+    color: #ff676c;
+  }
+
+.paragraph-wrap {
+
+}
+
 .navbar-inverse {
   background: rgb(25, 67, 94);
   border-color: #ED866E;
+}
+
+.w {
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+
+.pricing-option {
+  padding-bottom: 3px;
 }

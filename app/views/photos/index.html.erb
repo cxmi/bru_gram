@@ -1,24 +1,31 @@
-<% @photos.each do |photo| %>
-<% if photo.public == true || photo.user = current_user %>
 
-<p><%= link_to photo.user.email, photo_path(photo) %><br>
-<%= link_to image_tag(photo.image), photo_path(photo) %></p>
-<p><%= photo.caption %></p>
+	<div class="container w">
+		<div class="row centered">
+			<br><h2>All BruGrams</h2><br>
 
-<% if can_edit_photo?(photo) %>
-<%= link_to "Edit", edit_photo_path(photo) %> | 
-<%= link_to "Delete", photo_path(photo), 
-	method: :delete,
-	data: {confirm: "Are you sure?"} %>
-<% end %> 
+	<% @photos.each do |photo| %>
+	<% if photo.public == true || photo.user = current_user %>
 
 
+			<div class="col-lg-4">
+				<p><%= link_to photo.user.email, photo_path(photo) %><br>
+				<%= link_to image_tag(photo.image), photo_path(photo) %></p>
+				<p><%= photo.caption %></p>
 
-<% end %>
-<% end %>
+				<% if can_edit_photo?(photo) %>
+				<%= link_to "Edit", edit_photo_path(photo) %> | 
+				<%= link_to "Delete", photo_path(photo), 
+					method: :delete,
+					data: {confirm: "Are you sure?"} %>
+				<% end %>
+				
+			</div><!-- col-lg-4 -->
+			<% end %>
+			<% end %>
 
+		</div><!-- row -->
+	</div><!-- container -->
+<br><br>
 
-<br>
-<%= link_to 'Back to Home', root_path %>
 
 

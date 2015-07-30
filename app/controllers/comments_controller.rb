@@ -1,9 +1,20 @@
 class CommentsController < ApplicationController
+	before_action :authenticate_user!
+
+def new
+	@comment = Comment.new
+end 
 
 def create
 	@photo = Photo.find(params[:photo_id])
 	@comment = @photo.comments.create(comment_params)
+	@comment.user = current_user
+
+	if @comment.save
 	redirect_to photo_path(@photo)
+	else
+		render :new
+	end
 end
 
 def edit
@@ -12,8 +23,8 @@ def edit
 end
 
 def update
-	@photo = Photo.find(params[:photo_id]
-	@comment = @photo.comment.find(params[:id])
+	@photo = Photo.find(params[:photo_id])
+	@comment = @photo.comments.find(params[:id])
 
 	if @comment.update(comment_params)
 		redirect_to photo_path(@photo)

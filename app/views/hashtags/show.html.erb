@@ -1,11 +1,18 @@
-<h2><%= @hashtag.tag %></h2>
+<div class="container w">
+		<div class="row centered">
+			<br><h2><%= @hashtag.tag %></h2><br>
 
 
 <% @hashtag.photos.each do |photo| %>
-	<p><%= photo.user.email %><br>
-	<%= image_tag photo.image %></p>
-	<p><%= photo.caption %><br>
+	<div class="col-lg-4">
+				<p><%= link_to photo.user.email, photo_path(photo) %><br>
+				<%= link_to image_tag(photo.image), photo_path(photo) %></p>
+				<p><%= photo.caption %></p>
 
+			</div><!-- col-lg-4 -->
+			
 <% end %>
-<br>
-<%= link_to "Back", hashtags_path %>
+
+
+</div>
+</div>

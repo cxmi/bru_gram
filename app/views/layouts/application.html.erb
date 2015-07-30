@@ -6,12 +6,12 @@
 
 </head>
 <body>
-<%= render 'layouts/nav' unless @disable_nav %>
-<%= render 'layouts/header' unless @disable_nav %>
+<%= render 'layouts/navbar' %>
 <%= render 'layouts/alerts' unless @disable_nav %> 
 
 <%= yield %>
 
+<%= render 'layouts/footer' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 

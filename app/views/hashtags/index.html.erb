@@ -1,8 +1,21 @@
-<p><% @hashtags.each do |hashtag| %>
+
+	<div class="container w">
+		<div class="row centered">
+			<br>
+			<h2>Related Grams</h2>
+			<br>
+
+<% @hashtags.each do |hashtag| %>
 <% if hashtag.photos != [] %>
-<%= link_to hashtag.tag, hashtag_path(hashtag) %><br>
+
+<div class="pricing-option">
+<div class="pricing-signup">
+<%= link_to hashtag.tag, hashtag_path(hashtag)%>
+</div></div>
 
 
 <% end %>
-<% end %></p>
+<% end %>
 
+</div>
+</div>
