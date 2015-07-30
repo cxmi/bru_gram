@@ -3,15 +3,17 @@
 <head>
   <title>BrugramApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+
 </head>
 <body>
-<%= render 'layouts/nav' %>
-<%= render 'layouts/header' %>
-<%= render 'layouts/alerts' %> 
+<%= render 'layouts/nav' unless @disable_nav %>
+<%= render 'layouts/header' unless @disable_nav %>
+<%= render 'layouts/alerts' unless @disable_nav %> 
 
 <%= yield %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
 </body>
 </html>

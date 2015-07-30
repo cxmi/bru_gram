@@ -10,11 +10,19 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
+ *= require bootstrap/glyphicons
  *= require_tree .
+ *= require spot-main
  *= require_self
  */
 
 
 img {
-	width: 300px;
+	width: 350px;
+}
+
+.navbar-inverse {
+  background: rgb(25, 67, 94);
+  border-color: #ED866E;
 }
